@@ -1,50 +1,54 @@
 
-var joueur=prompt("pierre, feuille ou ciseau?");
-var ordi=Math.random();
-if (ordi < 0.34){
-  ordi = "pierre";
+
+var resultatkenny=0;
+var resultatcompu=0;
+while(resultatkenny<3 && resultatcompu<3 ){
+var kenny = prompt("pebbles, leaf, scissors?");
+var compu = Math.random();
+if (compu < 0.34){
+  compu = "pebbles";
 }
 
-else if  (ordi <= 0.67){
-  ordi = "feuille";
+else if  (compu <= 0.67){
+  compu = "leaf";
 }
 
 else {
-  ordi = "ciseau";
+  compu = "scissors";
 }
-alert("choix ordinateur " + " "+ ordi);
+alert("My choice:" + " "+ compu);
 
-
-function tirage (joueur,ordi){
-if (joueur === ordi){
-alert("egalite");
+function tirage (kenny,compu){
+if (kenny === compu){
+alert("Equality. But I will win");
 }
-  else if (joueur === "ciseau"){
-   if (ordi === "pierre"){
-    return "ordi a gagne"
+  else if (kenny === "scissors"){
+   if (compu === "pebbles"){
+  resultatcompu++; return "I do not like the losers! Get out!"
    }
     else {
-      return "joueur a gagne"
+  resultatkenny++; return "Kenny it's the winner";
     }
   }
   
- else if (joueur === "feuille"){
-   if (ordi === "pierre"){
-    return "joueur a gagne"
+ else if (kenny === "leaf"){
+   if (compu === "pebbles"){
+   resultatkenny++; return "Kenny it's the winner";
    }
     else {
-      return "ordi a gagne"
+   resultatcompu++; return "I do not like the losers! Get out!";
     }
   }
   
- else if (joueur === "pierre"){
-   if (ordi === "ciseau"){
-    return "joueur a gagne"
+ else if (kenny === "pebbles"){
+   if (compu === "scissors"){
+   resultatkenny++; return "Kenny it's the winner";
    }
     else {
-      return "ordi a gagne"
+   resultatcompu++;  return "I do not like the losers! Get out!";
     }
   }
-
 }
-alert(tirage(joueur,ordi));
+
+alert(tirage(kenny,compu));
+}
